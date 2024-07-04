@@ -1,4 +1,4 @@
-package com.springboot.indeedclone.role;
+package com.springboot.indeedclone.model;
 
 import jakarta.persistence.*;
 import lombok.Data;

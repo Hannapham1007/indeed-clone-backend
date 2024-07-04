@@ -1,7 +1,6 @@
-package com.springboot.indeedclone.job;
+package com.springboot.indeedclone.model;
 
 import com.fasterxml.jackson.annotation.JsonIncludeProperties;
-import com.springboot.indeedclone.user.User;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

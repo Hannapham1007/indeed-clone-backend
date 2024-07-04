@@ -1,5 +1,7 @@
-package com.springboot.indeedclone.role;
+package com.springboot.indeedclone.repository;
 
+import com.springboot.indeedclone.model.ERole;
+import com.springboot.indeedclone.model.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

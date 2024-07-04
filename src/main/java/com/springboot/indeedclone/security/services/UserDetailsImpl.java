@@ -1,6 +1,6 @@
 package com.springboot.indeedclone.security.services;
 
-import com.springboot.indeedclone.user.User;
+import com.springboot.indeedclone.model.User;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import org.springframework.security.core.GrantedAuthority;

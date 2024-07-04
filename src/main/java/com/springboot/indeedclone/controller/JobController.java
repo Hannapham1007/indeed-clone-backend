@@ -1,9 +1,13 @@
-package com.springboot.indeedclone.job;
+package com.springboot.indeedclone.controller;
 
+import com.springboot.indeedclone.listObjectResponse.JobListResponse;
+import com.springboot.indeedclone.model.Job;
+import com.springboot.indeedclone.model.User;
+import com.springboot.indeedclone.objectResponse.JobResponse;
+import com.springboot.indeedclone.repository.JobRepository;
+import com.springboot.indeedclone.repository.UserRepository;
 import com.springboot.indeedclone.response.ApiResponse;
 import com.springboot.indeedclone.response.Responses;
-import com.springboot.indeedclone.user.User;
-import com.springboot.indeedclone.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -79,5 +83,17 @@ public class JobController {
         JobResponse jobResponse = new JobResponse();
         jobResponse.set(jobPostToDelete);
         return ResponseEntity.ok(jobResponse);
+    }
+
+    @GetMapping("list/belong/{id}")
+    public ResponseEntity<ApiResponse<?>> getJobPostListBelongToUser(@PathVariable int id){
+        User user = this.userRepository.findUserById(id);
+        if(user == null){
+            return Responses.notFound("user");
+        }
+        JobListResponse jobListResponse = new JobListResponse();
+        List<Job> jobs = this.jobRepository.findByUser(user);
+        jobListResponse.set(jobs);
+        return new ResponseEntity<>(jobListResponse, HttpStatus.OK);
     }
 }

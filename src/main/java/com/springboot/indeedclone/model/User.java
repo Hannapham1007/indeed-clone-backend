@@ -1,8 +1,8 @@
-package com.springboot.indeedclone.user;
+package com.springboot.indeedclone.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.springboot.indeedclone.job.Job;
-import com.springboot.indeedclone.role.Role;
+import com.springboot.indeedclone.model.Job;
+import com.springboot.indeedclone.model.Role;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;

@@ -1,4 +1,4 @@
-package com.springboot.indeedclone.role;
+package com.springboot.indeedclone.model;
 
 public enum ERole {
     ROLE_USER,

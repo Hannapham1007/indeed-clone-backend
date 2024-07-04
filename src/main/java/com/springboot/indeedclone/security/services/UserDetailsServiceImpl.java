@@ -1,7 +1,7 @@
 package com.springboot.indeedclone.security.services;
 
-import com.springboot.indeedclone.user.User;
-import com.springboot.indeedclone.user.UserRepository;
+import com.springboot.indeedclone.model.User;
+import com.springboot.indeedclone.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

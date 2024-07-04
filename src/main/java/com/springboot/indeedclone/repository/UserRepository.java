@@ -1,5 +1,6 @@
-package com.springboot.indeedclone.user;
+package com.springboot.indeedclone.repository;
 
+import com.springboot.indeedclone.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
