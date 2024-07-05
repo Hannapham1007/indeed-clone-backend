@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -34,8 +33,9 @@ public class JobService {
                 .collect(Collectors.toList());
     }
 
-    public JobDTO createJobPost(int userId, Job job) {
-        User user = getUserById(userId);
+    public JobDTO createJobPost(Job job) {
+        int userId = job.getUser().getId();
+        User user = this.userRepository.findUserById(userId);
         job.setUser(user);
         Job savedJob = this.jobRepository.save(job);
         return convertToDTO(savedJob);
@@ -73,6 +73,7 @@ public class JobService {
 
     private JobDTO convertToDTO(Job job) {
         JobDTO jobDTO = new JobDTO();
+        jobDTO.setId(job.getId());
         jobDTO.setCompany(job.getCompany());
         jobDTO.setExperience(job.getExperience());
         jobDTO.setDescription(job.getDescription());
@@ -81,6 +82,8 @@ public class JobService {
         jobDTO.setTitle(job.getTitle());
         jobDTO.setType(job.getType());
         jobDTO.setTechnology(job.getTechnology());
+        jobDTO.setCreatedAt(job.getCreatedAt());
+        jobDTO.setUpdatedAt(job.getUpdatedAt());
         return jobDTO;
     }
 

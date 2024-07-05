@@ -3,6 +3,7 @@ package com.springboot.indeedclone.dto;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Getter
@@ -17,5 +18,7 @@ public class JobDTO {
     private List<String> technology;
     private String experience;
     private String salary;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
 
 }
