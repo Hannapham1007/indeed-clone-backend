@@ -4,5 +4,5 @@ import com.springboot.indeedclone.dto.JobDTO;
 import com.springboot.indeedclone.model.Job;
 import com.springboot.indeedclone.response.ApiResponse;
 
-public class JobResponse extends ApiResponse<Job> {
+public class JobResponse extends ApiResponse<JobDTO> {
 }
