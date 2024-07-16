@@ -58,7 +58,7 @@ public class WebSecurityConfig {
                 .exceptionHandling((exception) -> exception.authenticationEntryPoint(unauthorizedHandler))
                 .sessionManagement((session) -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests((requests) -> requests
-                        .requestMatchers("/auth/**").permitAll()
+                        .requestMatchers("/auth/**", "/saved_jobs/**").permitAll()
                         .requestMatchers("/users/**", "/roles/**").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.GET, "/job_posts").permitAll()
                         .requestMatchers(HttpMethod.POST, "/job_posts").hasRole("ADMIN")

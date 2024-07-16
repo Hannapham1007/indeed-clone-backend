@@ -60,6 +60,11 @@ public class User {
     @JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles = new HashSet<>();
 
+    @OneToMany(mappedBy = "user")
+    @JsonIgnoreProperties(value = "user", allowSetters = true)
+    private List<SavedJob> savedJobs;
+
+
     public User( String username,  String email,String password) {
         this.username = username;
         this.email = email;

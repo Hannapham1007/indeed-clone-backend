@@ -57,6 +57,11 @@ public class Job {
     @JsonIncludeProperties({"id", "name"})
     private User user;
 
+    @OneToMany
+    @JoinColumn(name = "savedJob_id")
+    @JsonIncludeProperties("id")
+    private List<SavedJob> savedJobs;
+
     public Job(String title, String type, String company, String experience, String description, List<String> technology, String salary, String location) {
         this.title = title;
         this.type = type;
