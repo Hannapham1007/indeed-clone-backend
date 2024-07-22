@@ -61,7 +61,7 @@ public class JobController {
         return ResponseEntity.ok(jobResponse);
     }
 
-    @GetMapping("list/belong/{id}")
+    @GetMapping("/list/belong/{id}")
     public ResponseEntity<ApiResponse<?>> getJobPostListBelongToUser(@PathVariable int id){
         JobListResponse jobListResponse = new JobListResponse();
         List<JobDTO> jobs = this.jobService.getJobListByUser(id);

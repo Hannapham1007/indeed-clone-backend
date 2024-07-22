@@ -1,6 +1,5 @@
 package com.springboot.indeedclone.controller;
 
-import com.springboot.indeedclone.dto.SavedJobDTO;
 import com.springboot.indeedclone.listObjectResponse.SavedJobListResponse;
 import com.springboot.indeedclone.model.Job;
 import com.springboot.indeedclone.model.SavedJob;
@@ -21,6 +20,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/saved_jobs")
+@CrossOrigin
 public class SavedJobController {
     @Autowired
     private SavedJobRepository savedJobRepository;
@@ -78,6 +78,15 @@ public class SavedJobController {
         savedJobResponse.set(jobToDelete);
         return ResponseEntity.ok(savedJobResponse);
 
+    }
+
+    @DeleteMapping
+    public ResponseEntity<ApiResponse<?>> deleteAllSavedJobs(){
+        SavedJobListResponse savedJobListResponse = new SavedJobListResponse();
+        List<SavedJob> savedJobs = this.savedJobRepository.findAll();
+        this.savedJobRepository.deleteAll();
+        savedJobListResponse.set(savedJobs);
+        return new ResponseEntity<>(savedJobListResponse, HttpStatus.OK);
     }
 
 }
